@@ -90,3 +90,17 @@ Had one schema which includes records from 2019-02 till 2020-06 with the followi
 |Three|2015-01 till 2016-06|'vendorid', 'tpep_pickup_datetime', 'tpep_dropoff_datetime', 'passenger_count', 'trip_distance', 'pickup_longitude', 'pickup_latitude', 'ratecodeid', 'store_and_fwd_flag', 'dropoff_longitude', 'dropoff_latitude', 'payment_type', 'fare_amount', 'extra', 'mta_tax', 'tip_amount', 'tolls_amount', 'improvement_surcharge', 'total_amount'|
 |Four|2016-07 till 2018-12|'vendorid', 'tpep_pickup_datetime', 'tpep_dropoff_datetime', 'passenger_count', 'trip_distance', 'ratecodeid', 'store_and_fwd_flag', 'pulocationid', 'dolocationid', 'payment_type', 'fare_amount', 'extra', 'mta_tax', 'tip_amount', 'tolls_amount', 'improvement_surcharge', 'total_amount'|
 |Five|2019-01 till 2020-06|'vendorid', 'tpep_pickup_datetime', 'tpep_dropoff_datetime', 'passenger_count', 'trip_distance', 'ratecodeid', 'store_and_fwd_flag', 'pulocationid', 'dolocationid', 'payment_type', 'fare_amount', 'extra', 'mta_tax', 'tip_amount', 'tolls_amount', 'improvement_surcharge', 'total_amount', 'congestion_surcharge'|
+
+### 4.2. Results for Data Cleaning. 
+After the cleaning process, a total of **66,7814** records of FHV dataset were flagged as bad. No bad records was recorded for FHVHV dataset. Green and yellow dataset both had **526** and **341,112** bad records respectively
+### 4.3. Results for Analysis
+We will present just the main plots in this sections. The values behind the plots can viewed in the notebook were the plots were generated.
+#### 4.3.1 The monthly total number of trips, grouped per dataset type
+![Monthly Trips](./pics/monthlytrips.png "Monthly Total number of Trips")
+In general, yellow taxi had the highest number of trips per month lookinga at the y axis scale. Yellow and green taxi almost had similar pattern in the number of trips per month with high values in the first two quarters and a drop in the third quarter and slow rise in the last quarter. FHV started high in January, a fall in Febraury till April and a rise from June till the end of the end. No recognise pattern for FHVHV as we had records only for one and a half hear. Eventhough the scales of y-axis can guide in getting the numerical values behing the plots, see exact values in other notebook.  
+#### 4.3.3 Monthly total number of trips in Manhattan and Brooklyn
+![Manhattan and Brooklyn](./Pics/M_Bpng.png "Title")
+The Manhattan and Brooklyn total number of trips show similar pattern as the total number of trips as seen above. This could suggest that these two Boroughs contributed the most number of trips overall. 
+#### 4.3.4 The monthly total receipts, grouped per dataset type
+![Total Receipt](./Pics/tot_receipt.png "Title")
+As expected, monthly total receipts is similar in pattern as the total number of trips per month. We expect that when number of trips is high, total receipts should be high and vise versa. Again, Yellow taxi generated more total receipts as compared to green. FHV and FHVHV had no information for receipt. 
