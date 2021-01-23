@@ -96,11 +96,45 @@ After the cleaning process, a total of **66,7814** records of FHV dataset were f
 ### 4.3. Results for Analysis
 We will present just the main plots in this sections. The values behind the plots can viewed in the notebook were the plots were generated.
 #### 4.3.1 The monthly total number of trips, grouped per dataset type
-![Monthly Trips](./pics/monthlytrips.png "Monthly Total number of Trips")
+![Monthly Trips](./Pics/monthlytrips.png "Monthly Total number of Trips")
+<br>
 In general, yellow taxi had the highest number of trips per month lookinga at the y axis scale. Yellow and green taxi almost had similar pattern in the number of trips per month with high values in the first two quarters and a drop in the third quarter and slow rise in the last quarter. FHV started high in January, a fall in Febraury till April and a rise from June till the end of the end. No recognise pattern for FHVHV as we had records only for one and a half hear. Eventhough the scales of y-axis can guide in getting the numerical values behing the plots, see exact values in other notebook.  
 #### 4.3.3 Monthly total number of trips in Manhattan and Brooklyn
 ![Manhattan and Brooklyn](./Pics/M_Bpng.png "Title")
+<br>
 The Manhattan and Brooklyn total number of trips show similar pattern as the total number of trips as seen above. This could suggest that these two Boroughs contributed the most number of trips overall. 
 #### 4.3.4 The monthly total receipts, grouped per dataset type
 ![Total Receipt](./Pics/tot_receipt.png "Title")
+<br>
 As expected, monthly total receipts is similar in pattern as the total number of trips per month. We expect that when number of trips is high, total receipts should be high and vise versa. Again, Yellow taxi generated more total receipts as compared to green. FHV and FHVHV had no information for receipt. 
+#### 4.3.5 The average trip receipt grouped per dataset type
+
+![Tips Receipt](./Pics/tips.png "Title")
+<br>
+In general,green taxi gets more trip receipt averagely than those of yellow taxi per month. Average trip receipt for green was **\\$13** while for yellow it was  **\\$12**. The first and last quarter for green taxi showed averagely low trips receipt as oppose to the second and third with comparatively high tips.  
+#### 4.3.6 Average cost per in-progress-minute
+![Average Cost](./Pics/avgcost.png "Title")
+<br>
+The Average cost per in progess minute for yellow taxi was consistenly low when compared to that of green on a monthly base except for the month of March with **\\$1.38 vs \\$1.32** per minute. So, yellow taxi service is averagely cheaper comparatively. 
+#### 4.3.7 Average tip per trip grouped per dataset type
+![Average Tip](./Pics/tipamnt.png "Title")
+<br>
+Considering the values behind the plots and scale of the y axis, yellow taxi drivers averagely get more tips than those of green taxi. Hence, as a driver, I will prefer to be a driver for yellow taxi. 
+#### 4.3.8 Median monthly average trip speed, grouped per dataset type and per borough
+![Median speed](./Pics/medianspeed.png "Title")
+<br>
+Overall, the median monthly trip were quite low as non of the values went above one mile per minute.
+#### 4.3.9 Time Taken to get to Newark Airport
+![New York](./Pics/NY.png "Title")
+<br>
+Taxi trips duration from Manhattan Midtown and Chelsea to Newark Airport showed similar patterns. The early mornings and late evenings were the best time to take a drip to Airport while the Afternoons and early evenings were the worst time to take a drip to the Airport. We will like to stress here that, trips from Times Squeare or Garment District also showed similar pattern but due to two trips that recorded unusual trip duration caused the left skewed data display. <br>
+The exact best time slots to travel to the Newark airport were ***05:00-05:59*** from Manhattan, ***02:00-02:59*** from Chelsea and ***03:00-03:59*** from Times Squeare or Garment District. Their corresponding worst time slots were ***17:00-17:59, 16:00-16:59, 16:00-16:59*** respectively. We decided not to consider ***00:00 - 00:59*** as the worse time slot for Times Squeare or Garment District because those two trips were outliers. <br>
+The monthly median travel time for the best and worst time slots  plots can be found other notebook. 
+#### 4.3.10. Time Taken to get to JFK Airport
+![jfk](./Pics/JFK.png "Title")
+<br>
+Median trip duration to JFK airport from the three locations showed similar pattern and also looks similar to what we saw for the Newark airport. Generally worst time to take a trip to the airport will be from ***14:00 - 19:59***. Early mornings and late at night are the best time slots. The plots shows ***15:00 - 15:59*** as the worse time slots to take a trip from both Time Squeares or Garment District and from Chelsea to JFK airport. for Manhattan it is ***16:00 - 16:59***. Their corressponding best time slots are ***01:00 - 01:59, 22:00-22:59, 00:00-00:59*** respectively
+#### 4.3.11 Time Taken to get to LaGuardia Airport
+![lg](./Pics/LG.png "Title")
+<br>
+Once more, a similar pattern to the other two airports. We like to stress that the median trip durations to LaGuardia Airport is in general low as compared to the other Airports. May be this airport is closed to the three locations (still to be verified). ***17:00 - 17:59*** turns out to be the worse time slot to make a drip to LaGuardia Aiport from the three locations. ***23:00 - 23:59*** is the best time slot from Manhattan, ***22:00 - 22:59*** from Chelsea and ***21:00 - 21:59*** from Times Squeare or Garment District to LaGuardia Airport. 
