@@ -23,3 +23,70 @@ Functional programming was the backbone to our solution approach. We will break 
 **Note should be taken that we only considered columns that were required for the analysis section**
 
 >- **Analysis:** Before hand we had extracted trip month and total receipt for each file in the data cleaning section using the ***month_extract*** and ***tot_receipt*** function respectively. So it was then easy for us to group most of the analysis by month as requested. Trip duration in minutes was extracted from the difference in pickup and dropoff time fields. The trip speed was calcualted diving the trip distance covered in miles by trip duration in minutes. 
+### 3.3. Execution Environment
+To realise our solution approach, python was the main programming language and  we made use of the following librairies: <br>
+> - [os](https://docs.python.org/3/library/os.html) 
+> - [numpy](https://numpy.org/)
+> - [pandas](https://pandas.pydata.org/docs/)
+> - [shutil](https://docs.python.org/3/library/shutil.html)
+> - [Spark Python](https://spark.apache.org/docs/latest/api/python/index.html)
+> - [geopandas](https://geopandas.org/)
+> - [shapely](https://pypi.org/project/Shapely/)
+> - [Matplotlib](https://matplotlib.org/)
+
+We both used separate laptops to develop the codes which had the following specifictions
+> - Lenovo ideapad Flex 5 CORE i7 10th Generation. 16.0GB RAM with windows 10 operating system.
+> - Acer Aspire E 15, intel CORE i3. 4.0GB RAM with windows 10 operating system.
+## 4.0. Results
+Results will be presented based on each tasks. 
+### 4.1. Results for Collecting metadata, inspecting schema evolution
+#### Statistics about the dataset
+
+| Taxi Type |Statistics-Type | Number of files |Min|Max|Mean|25th Percentile|50th Percentile|75th Percentile|90th Percentile|
+|:-| :-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
+|FHV|Record |104|959|85,995|26,723.23|8,711.5|24,684.0|43,087.0|47,332.1|
+|FHV|Size(bytes) |104|4,096|3,339,455|707,580.21|4,096.0|201,559.5|777,344.75|2,742,530.1|
+|FHVHV|Record|10|8,625|47,703|32,181.9|18,022.0|40,714.0|43,056.25|44,922.0|
+|FHVHV|Size(bytes)|10|535,789|2,978,931|2,007,750.7|1,121,047.25|2,542,280.0|2,687,857.25|2,804,332.8|
+|Green|Record|76|15|3546|2,026.5|1,358.75|2,072.5|2,892.25|3,126.0|
+|Green|Size(bytes)|76|2,512|570,765|262,437.29|121,494.75|190,194.5|456,955.0|499,751.0|
+|Yellow|Record|131|476|32,300|24,203.51|19,989.0|26,294.0|29,080.0|30,202.0|
+|Yellow|Size(bytes)|131|43,103|5,959,352|3,750,759.69|1,756,967.0|4,442,047.0|5,123,591.5|5,491,438.0|
+|Total|Records|281|15|47,703|17,922.07|3,037.0|19,532.0|28,560.0|31,372.0|
+|Total|Size(bytes)|281|2,512|5,959,352|2,152,301.64|257,388.0|1,479,679.0|4,181,249|5,188,938.0|
+
+#### Analysis of the schema evolution
+
+##### FHV Taxi
+
+|Version|Year|Details|
+| :-:|:-:|:-|
+|One|2015-01 till 2016-12|'dispatching_base_num', 'pickup_date', 'locationid'|
+|Two|2017-01 till 2017-06|'dispatching_base_num', 'pickup_datetime', 'dropoff_datetime', 'pulocationid', 'dolocationid'|
+|Three|2017-07 till 2017-12|'dispatching_base_num', 'pickup_datetime', 'dropoff_datetime', 'pulocationid', 'dolocationid', 'sr_flag'|
+|Four|2018-01 till 2018-12|'pickup_datetime', 'dropoff_datetime', 'pulocationid', 'dolocationid', 'sr_flag', 'dispatching_base_number', 'dispatching_base_num'|
+|Five|2019-01 till 2020-06|'dispatching_base_num', 'pickup_datetime', 'dropoff_datetime', 'pulocationid', 'dolocationid', 'sr_flag'|
+
+***Note: Version Five and Three were similiar, so files from both schemas were merged into one.***
+
+##### FHVHV Taxi 
+Had one schema which includes records from 2019-02 till 2020-06 with the following colmun headings: *'hvfhs_license_num', 'dispatching_base_num', 'pickup_datetime', 'dropoff_datetime', 'pulocationid', 'dolocationid', 'sr_flag'*
+
+##### Green Taxi
+
+|Version|Year|Details|
+| :-:|:-:|:-|
+|One|2013-08 till 2014-12|'vendorid', 'lpep_pickup_datetime', 'lpep_dropoff_datetime', 'store_and_fwd_flag', 'ratecodeid', 'pickup_longitude', 'pickup_latitude', 'dropoff_longitude', 'dropoff_latitude', 'passenger_count', 'trip_distance', 'fare_amount', 'extra', 'mta_tax', 'tip_amount', 'tolls_amount', 'ehail_fee', 'total_amount', 'payment_type', 'trip_type'|
+|Two|2015-01 till 2016-06|'vendorid', 'lpep_pickup_datetime', 'lpep_dropoff_datetime', 'store_and_fwd_flag', 'ratecodeid', 'pickup_longitude', 'pickup_latitude', 'dropoff_longitude', 'dropoff_latitude', 'passenger_count', 'trip_distance', 'fare_amount', 'extra', 'mta_tax', 'tip_amount', 'tolls_amount', 'ehail_fee', 'improvement_surcharge', 'total_amount', 'payment_type', 'trip_type'|
+|Three|2016-07 till 2018-12|'vendorid', 'lpep_pickup_datetime', 'lpep_dropoff_datetime', 'store_and_fwd_flag', 'ratecodeid', 'pulocationid', 'dolocationid', 'passenger_count', 'trip_distance', 'fare_amount', 'extra', 'mta_tax', 'tip_amount', 'tolls_amount', 'ehail_fee', 'improvement_surcharge', 'total_amount', 'payment_type', 'trip_type'|
+|Four|2019-01 till 2020-06|'vendorid', 'lpep_pickup_datetime', 'lpep_dropoff_datetime', 'store_and_fwd_flag', 'ratecodeid', 'pulocationid', 'dolocationid', 'passenger_count', 'trip_distance', 'fare_amount', 'extra', 'mta_tax', 'tip_amount', 'tolls_amount', 'ehail_fee', 'improvement_surcharge', 'total_amount', 'payment_type', 'trip_type', 'congestion_surcharge'|
+
+#### Yellow Taxi
+
+|Version|Year|Details|
+| :-:|:-:|:-|
+|One|2009-01 till 2009-12|'vendor_name', 'trip_pickup_datetime', 'trip_dropoff_datetime', 'passenger_count', 'trip_distance', 'start_lon', 'start_lat', 'rate_code', 'store_and_forward', 'end_lon', 'end_lat', 'payment_type', 'fare_amt', 'surcharge', 'mta_tax', 'tip_amt', 'tolls_amt', 'total_amt'|
+|Two|2010-01 till 2014-12|'vendor_id', 'pickup_datetime', 'dropoff_datetime', 'passenger_count', 'trip_distance', 'pickup_longitude', 'pickup_latitude', 'rate_code', 'store_and_fwd_flag', 'dropoff_longitude', 'dropoff_latitude', 'payment_type', 'fare_amount', 'surcharge', 'mta_tax', 'tip_amount', 'tolls_amount', 'total_amount'|
+|Three|2015-01 till 2016-06|'vendorid', 'tpep_pickup_datetime', 'tpep_dropoff_datetime', 'passenger_count', 'trip_distance', 'pickup_longitude', 'pickup_latitude', 'ratecodeid', 'store_and_fwd_flag', 'dropoff_longitude', 'dropoff_latitude', 'payment_type', 'fare_amount', 'extra', 'mta_tax', 'tip_amount', 'tolls_amount', 'improvement_surcharge', 'total_amount'|
+|Four|2016-07 till 2018-12|'vendorid', 'tpep_pickup_datetime', 'tpep_dropoff_datetime', 'passenger_count', 'trip_distance', 'ratecodeid', 'store_and_fwd_flag', 'pulocationid', 'dolocationid', 'payment_type', 'fare_amount', 'extra', 'mta_tax', 'tip_amount', 'tolls_amount', 'improvement_surcharge', 'total_amount'|
+|Five|2019-01 till 2020-06|'vendorid', 'tpep_pickup_datetime', 'tpep_dropoff_datetime', 'passenger_count', 'trip_distance', 'ratecodeid', 'store_and_fwd_flag', 'pulocationid', 'dolocationid', 'payment_type', 'fare_amount', 'extra', 'mta_tax', 'tip_amount', 'tolls_amount', 'improvement_surcharge', 'total_amount', 'congestion_surcharge'|
