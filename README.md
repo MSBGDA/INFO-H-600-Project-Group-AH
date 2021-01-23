@@ -138,3 +138,5 @@ Median trip duration to JFK airport from the three locations showed similar patt
 ![lg](./Pics/LG.png "Title")
 <br>
 Once more, a similar pattern to the other two airports. We like to stress that the median trip durations to LaGuardia Airport is in general low as compared to the other Airports. May be this airport is closed to the three locations (still to be verified). ***17:00 - 17:59*** turns out to be the worse time slot to make a drip to LaGuardia Aiport from the three locations. ***23:00 - 23:59*** is the best time slot from Manhattan, ***22:00 - 22:59*** from Chelsea and ***21:00 - 21:59*** from Times Squeare or Garment District to LaGuardia Airport. 
+### Related Projects
+> - [**New York Taxi Visualization**](https://github.com/ivombi/NY-Taxi)
