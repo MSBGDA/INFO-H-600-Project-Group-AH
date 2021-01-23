@@ -5,8 +5,8 @@ The New York City Taxi and Limousine Commission (TLC) was created in 1971. This 
 ## Project Objective
 This project was aimed at using the tools and knowledge acquired in the course to do data wrangling and analysis of a sampled subset of data from the TLC database. This objective was broken down into the following tasks:<br>
 > - [**Collecting metadata, inspecting schema evolution:**](https://github.com/MSBGDA/INFO-H-600-Project-Group-AH/blob/main/t1_explore.ipynb) Understanding the data and its characteristics
-> -[**Data integration:**](https://github.com/MSBGDA/INFO-H-600-Project-Group-AH/blob/main/t2_integrate.ipynb) Updating old schemas to the latest schema for each subdatset
-> -[**Data Cleaning**](https://github.com/MSBGDA/INFO-H-600-Project-Group-AH/blob/main/t3_clean.ipynb) Checking files for record errors, repairing them and separting into good and bad records.
+> - [**Data integration:**](https://github.com/MSBGDA/INFO-H-600-Project-Group-AH/blob/main/t2_integrate.ipynb) Updating old schemas to the latest schema for each subdatset
+> - [**Data Cleaning**](https://github.com/MSBGDA/INFO-H-600-Project-Group-AH/blob/main/t3_clean.ipynb) Checking files for record errors, repairing them and separting into good and bad records.
 > - [**Analysis:**](https://github.com/MSBGDA/INFO-H-600-Project-Group-AH/blob/main/t4_analysis.ipynb) Answering queries and plotting results using matplotlib
 
 <br>See the assignment file for more details about the above objectives. 
