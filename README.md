@@ -1,2 +1,2 @@
-# INFO-H-600-507332
-Project solution by Kubam Ivo and Berdai Hasnae.
+# INFO-H-600-Project-Group-AH
+Project Assignment By Kubam Ivo and BERDAI, HASNAE
