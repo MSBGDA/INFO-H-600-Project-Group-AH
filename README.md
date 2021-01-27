@@ -36,4 +36,5 @@ The monthly median travel time for the best and worst time slots  plots can be f
 
 ### Related Projects
 > - [**New York Taxi Visualization**](https://github.com/ivombi/NY-Taxi)
+> - [**New York Taxi Time Series Forecast**](https://github.com/ivombi/NY-Taxi-Forecast.git)
 
